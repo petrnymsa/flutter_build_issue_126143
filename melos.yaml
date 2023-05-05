@@ -1,0 +1,22 @@
+name: awesome_workspace
+ide:
+  intellij:
+    enabled: true
+
+sdkPath: .fvm/flutter_sdk
+
+packages:
+  - apps/**
+  - packages/**
+
+command:
+  bootstrap:
+    # Uses the pubspec_overrides.yaml instead of having Melos modifying the lock file.
+    usePubspecOverrides: true
+
+scripts:
+  pubget:
+    run: melos exec -- flutter pub get
+
+  analyze:
+    run: melos exec -- flutter analyze --no-pub --no-fatal-infos --no-fatal-warnings
